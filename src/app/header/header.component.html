@@ -1,0 +1,11 @@
+<header class="container">
+    <img src="../assets/img/logo.jpg" class="logo" alt="">
+    <nav class="col-sm-8">
+      <button class="btn-menu" routerLink="/home"   mat-raised-button color="primary">Home</button>
+      <button class="btn-menu" mat-raised-button [matMenuTriggerFor]="menu" color="primary">Clientes</button>
+      <mat-menu #menu="matMenu">
+        <button routerLink="/clientes" mat-menu-item>Busca de Clientes</button>
+        <button routerLink="/clientes/cadastro" mat-menu-item color="primary">Cadastrar</button>
+      </mat-menu>
+    </nav>
+  </header>

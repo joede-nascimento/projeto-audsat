@@ -1,0 +1,43 @@
+<h1 class="titulo">Ficha do Cliente</h1>
+<div class="elem-margin-top">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label class="bold" for="nome">Nome</label>
+                <div>{{ cliente.nome }}</div>
+               
+              </div>
+              <div class="form-group col-md-3">
+                <label class="bold" for="nome">E-mail</label>
+                <div>{{ cliente.email }}</div>
+                
+              </div>
+              <div class="form-group col-md-3">
+                <label class="bold" for="telefone">Telefone</label>
+                <div>{{ cliente.telefone }}</div>
+              </div>
+              
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label class="bold" for="nome">Endereço</label>
+                <div>{{ cliente.cep }}</div>
+            </div>
+                 
+            <div class="form-group col-md-9">
+                <span class="resultadoCep">{{ cliente.logradouro }}, {{ cliente.bairro }}, 
+                        {{ cliente.cidade }}, {{ cliente.estado }}</span>
+            </div>    
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label class="bold" for="nome">Status</label>
+                <div>{{ cliente.status }}</div>
+              </div>             
+        </div>
+        
+        <div class="form-row elem-f-btn">
+            <button (click)="editarCliente()" class="btn-menu btn-cad btn-color" type="submit"  mat-raised-button color="primary">Editar</button>
+        </div>
+</div>

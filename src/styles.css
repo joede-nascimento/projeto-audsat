@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.ng-invalid.ng-touched:not(form){
+    border: 1px solid red;
+}
+
+.logo{
+    width: 170px;
+}
+
+body * {
+    /* border: 1px solid lightgray; */
+}
+
+nav{
+    display: inline-block;
+    float: right;
+    padding-top: 1%;
+    text-align: right;
+}
+
+.btn-menu{
+    margin-left: 4% !important;
+}
+.btn-menu:hover{
+    background-color: #4a63f1;
+}
+header{
+    background-color: #003E51;
+}
+footer{
+    border-top: 1px dashed lightgray;
+    margin-top: 4%;
+}
+
+.elem-f-btn{
+    text-align: right !important;
+    display: block !important;
+}
+.btn-cad{
+    margin-right: 7% !important;
+}
+.resultadoCep{
+    margin-top: 39px;
+    display: block;
+    font-size: 14px;
+}
+.local-margin-top{
+    margin-top: 2%;
+}
+
+form{
+    margin-top: 3% !important;
+}
+
+table {
+    margin-top: 6% !important;
+}
+
+.elem-margin-top{
+    margin-top: 3% !important;
+}
+
+.titulo{
+    margin-top: 3%;
+}
+
+.elem-btn-busca{
+    padding-top: 3% !important;
+    text-align: right !important;
+}
+.bold{
+    font-weight: bold;
+}
+
+.btn-color{
+    background-color: #008C44 !important;
+}
+.btn-color:hover{
+    background-color: #04b75b !important
+}

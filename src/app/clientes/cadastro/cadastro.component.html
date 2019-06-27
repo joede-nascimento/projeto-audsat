@@ -1,0 +1,65 @@
+
+<h1 class="titulo" *ngIf="id; else elseBlock">Atualização de Clientes</h1>
+<ng-template #elseBlock><h1 class="titulo">Cadastro de Clientes</h1></ng-template>
+
+
+<h1 class="titulo"></h1>
+<form [formGroup]="formulario" (ngSubmit)="cadastrarCliente()">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="nome">Nome</label>
+            <input type="text" formControlName="nome" class="form-control" id="nome">
+            <div class="alert alert-danger" role="alert" 
+                *ngIf="mostraErro(formulario.get('nome'))">
+                O campo nome é obrigatório
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="nome">E-mail</label>
+            <input type="email" formControlName="email" class="form-control" id="email"  email>
+            <div class="alert alert-danger" role="alert" 
+                *ngIf="mostraErro(formulario.get('email'))">
+                O campo email é obrigatório e deve ter formato de email
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="telefone">Telefone</label>
+            <input type="tel" formControlName="telefone" maxlength="9" class="form-control" id="telefone">
+            <div class="alert alert-danger" role="alert" 
+                *ngIf="mostraErro(formulario.get('telefone'))">
+                O campo telefone é obrigatório
+          </div>
+          </div>
+          
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="nome">Cep</label>
+            <input type="text" (blur)="buscaCep()" maxlength="8" formControlName="cep" class="form-control" id="cep">
+            <div class="alert alert-danger" role="alert" 
+                *ngIf="mostraErro(formulario.get('cep'))">
+                O campo cep é obrigatório
+          </div>
+        </div>
+         
+        <div class="form-group col-md-9">
+            <span class="resultadoCep">{{ resultadoCep.logradouro }}, {{ resultadoCep.bairro }}, 
+                {{ resultadoCep.localidade }}, {{ resultadoCep.uf }}</span>
+                
+            
+        </div>   
+    </div>
+    <div class="form-row elem-f-btn">
+        <button class="btn-menu btn-cad btn-color" type="submit" [disabled]="formulario.invalid"  mat-raised-button color="primary">{{ nomeBtn }}</button>
+    </div>
+</form>
+
+<div class="alert alert-success local-margin-top" role="alert"
+*ngIf="msg == 'success'">
+  O cliente {{ nomeCliente }} for {{ estadoMsgSucess }} com sucesso
+</div>
+
+<div class="alert alert-danger local-margin-top" role="alert"
+*ngIf="msg == 'error'">
+  :( erro ao tentar {{ estadoMsgError}} cliente
+</div>

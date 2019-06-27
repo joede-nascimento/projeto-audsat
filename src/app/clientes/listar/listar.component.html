@@ -1,0 +1,83 @@
+<h1 class="titulo">Busca de Clientes</h1>
+<form [formGroup]="formulario" (ngSubmit)="buscarCliente()" >
+    <div class="form-row">
+
+        <div class="form-group col-md-3">
+            <label for="nome">Nome</label>
+            <input type="text" formControlName="nome"  class="form-control" id="nome">
+            <div class="alert alert-danger" role="alert" 
+              *ngIf="mostraErro(formulario.get('nome'))">
+              O campo nome é obrigatório
+            </div>
+        </div>
+
+          <div class="form-group col-md-3">
+            <label for="nome">E-mail</label>
+            <input type="email"  formControlName="email" class="form-control" id="email"  email>
+            <div class="alert alert-danger" role="alert" 
+              *ngIf="mostraErro(formulario.get('email'))">
+              O campo email é obrigatório e deve ter formato de email
+            </div>
+          </div>
+
+          <div class="form-group col-md-3">
+              <label for="nome">Cep</label>
+              <input type="text" maxlength="8" formControlName="cep"  class="form-control" id="cep">
+              <div class="alert alert-danger" role="alert" 
+                *ngIf="mostraErro(formulario.get('cep'))">
+                O campo cep é obrigatório
+              </div>
+          </div>
+
+          <div class="form-group col-md-3 elem-btn-busca">
+              <button class="btn-menu btn-cad"  mat-raised-button color="primary">Buscar</button>
+          </div>
+    </div>
+ 
+  </form>
+
+
+
+<div *ngIf="urlPagina != 'http://localhost:4200/home'">
+  <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="cep">
+      <th mat-header-cell *matHeaderCellDef> Cep </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.cep}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="telefone">
+      <th mat-header-cell *matHeaderCellDef> Telefone </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.telefone}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.status}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="100"
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+
+</div>
+
